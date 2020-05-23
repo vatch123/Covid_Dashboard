@@ -1,1 +1,1 @@
-'# Covid Dashboard on Streamlit' 
+# Covid Dashboard on Streamlit
