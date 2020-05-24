@@ -19,6 +19,11 @@ class DataGenerator:
         
         cases_time_series = pd.DataFrame(list(national_data.loc['cases_time_series',:]))
 
+        # Taking care of the columns data types
+        column_names = list(cases_time_series.columns)
+        column_names.remove('date')
+        cases_time_series[column_names] = cases_time_series[column_names].apply(pd.to_numeric)
+
         statewise_latest = national_data.loc['statewise',:].dropna()
         statewise_latest = pd.DataFrame(list(statewise_latest))
 
@@ -26,7 +31,7 @@ class DataGenerator:
         tested_time_series = pd.DataFrame(list(tested_time_series))
 
         data = {
-            'case_time_series': cases_time_series,
+            'cases_time_series': cases_time_series,
             'statewise_latest': statewise_latest,
             'tested_time_series' : tested_time_series,
         }
