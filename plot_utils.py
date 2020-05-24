@@ -59,7 +59,7 @@ def plot_national_time_series(cases_time_series, analysis='Linear'):
 
     fig.update_layout(
         title={
-            'text': "Coronavirus Cases - Daily Analysis (Linear Scale)",
+            'text': "Coronavirus Cases - Daily Analysis ("+ analysis + " Scale)",
             'y':0.85,
             'x':0.5,
             'xanchor': 'center',
