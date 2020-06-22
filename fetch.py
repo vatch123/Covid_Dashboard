@@ -26,9 +26,18 @@ class DataGenerator:
 
         statewise_latest = national_data.loc['statewise',:].dropna()
         statewise_latest = pd.DataFrame(list(statewise_latest))
+        statewise_latest = statewise_latest.drop(['statenotes'], axis=1)
+        column_names = list(statewise_latest.columns)
+        column_names.remove('lastupdatedtime')
+        column_names.remove('state')
+        column_names.remove('statecode')
+        statewise_latest[column_names] = statewise_latest[column_names].apply(pd.to_numeric)
+        statewise_latest = statewise_latest.drop(0)
+        statewise_latest = statewise_latest.sort_values('confirmed', ascending=False)
 
         tested_time_series = national_data.loc['tested',:].dropna()
         tested_time_series = pd.DataFrame(list(tested_time_series))
+        tested_time_series.updatetimestamp = pd.to_datetime(tested_time_series.updatetimestamp.str.split().str[0], dayfirst=True)
 
         data = {
             'cases_time_series': cases_time_series,
@@ -67,17 +76,3 @@ class DataGenerator:
 
         return states_tests_timeseries
 
-
-
-
-## Uncomment the below lines and run this file to test the module
-
-# generator = DataGenerator()
-
-# print(generator.load_national_data('cases_time_series'))
-# print(generator.load_national_data('statewise').lastupdatedtime)
-# print(generator.load_national_data('statewise').state)
-# print(generator.load_national_data())
-# print(generator.load_state_district_data().loc["Assam", "districtData"])
-# print(generator.load_states_timeseries())
-# print(generator.load_states_tests_timeseries().state)
