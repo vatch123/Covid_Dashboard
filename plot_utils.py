@@ -4,8 +4,6 @@ import numpy as np
 import streamlit as st
 import plotly.express as px
 import pandas as pd
-from geopy.geocoders import Nominatim
-from geopy.extra.rate_limiter import RateLimiter
 
 def identity(x):
     return x

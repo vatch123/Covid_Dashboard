@@ -3,8 +3,6 @@ from fetch import DataGenerator
 import pandas as pd
 import streamlit as st
 import numpy as np
-import altair as alt
-import pydeck as pdk
 import plotly.graph_objects as go
 from datetime import date
 from plotly.subplots import make_subplots
