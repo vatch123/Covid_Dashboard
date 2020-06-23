@@ -16,6 +16,7 @@ git clone https://github.com/vatch123/Covid_Dashboard
 
 ```
 cd Covid_Dashboard
+cd src
 ```
 
 ### Install the dependencies
