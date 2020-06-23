@@ -12,17 +12,21 @@
 git clone https://github.com/vatch123/Covid_Dashboard
 ```
 
-### Go to the source directory
+### Go to the directory
 
 ```
 cd Covid_Dashboard
-cd src
 ```
 
 ### Install the dependencies
 
 ```
 pip install -r requirements.txt
+```
+
+### Go to source directory
+```
+cd src
 ```
 
 ### Run the app
