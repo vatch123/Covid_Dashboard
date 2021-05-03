@@ -22,6 +22,7 @@ class DataGenerator:
         # Taking care of the columns data types
         column_names = list(cases_time_series.columns)
         column_names.remove('date')
+        column_names.remove('dateymd')
         cases_time_series[column_names] = cases_time_series[column_names].apply(pd.to_numeric)
 
         statewise_latest = national_data.loc['statewise',:].dropna()
