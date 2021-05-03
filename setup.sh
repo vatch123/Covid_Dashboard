@@ -1,3 +1,5 @@
+sudo apt-get install python-dev
+
 mkdir -p ~/.streamlit/
 
 echo "\
